@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="PHP," />
 
 
 
@@ -93,12 +93,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="dontbesad">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="思路之前在自家OJ测过，但是效果不理想.　然后测一下杭电的，因为网上题解多，所以ac率很高.来说一下思路，大概就是模拟hdu上登录百度上搜索首页的题解进入blog去正则匹配代码将代码提交到hdu上大概就是这4个步骤，为什么需要模拟登录，而不直接发带有PHPSESSID的cookie呢. 我之前把第一个步骤省去试过，发现并不行，只有先登录，让服务器先去认识这个PHPSESSID.　百度上搜索题解，但">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动AC机,php实现,日刷千题不是梦.">
+<meta property="og:url" content="http://yoursite.com/2017/06/30/自动AC机-php实现-日刷千题不是梦/index.html">
 <meta property="og:site_name" content="dontbesad">
+<meta property="og:description" content="思路之前在自家OJ测过，但是效果不理想.　然后测一下杭电的，因为网上题解多，所以ac率很高.来说一下思路，大概就是模拟hdu上登录百度上搜索首页的题解进入blog去正则匹配代码将代码提交到hdu上大概就是这4个步骤，为什么需要模拟登录，而不直接发带有PHPSESSID的cookie呢. 我之前把第一个步骤省去试过，发现并不行，只有先登录，让服务器先去认识这个PHPSESSID.　百度上搜索题解，但">
+<meta property="og:updated_time" content="2017-06-30T01:37:12.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dontbesad">
+<meta name="twitter:title" content="自动AC机,php实现,日刷千题不是梦.">
+<meta name="twitter:description" content="思路之前在自家OJ测过，但是效果不理想.　然后测一下杭电的，因为网上题解多，所以ac率很高.来说一下思路，大概就是模拟hdu上登录百度上搜索首页的题解进入blog去正则匹配代码将代码提交到hdu上大概就是这4个步骤，为什么需要模拟登录，而不直接发带有PHPSESSID的cookie呢. 我之前把第一个步骤省去试过，发现并不行，只有先登录，让服务器先去认识这个PHPSESSID.　百度上搜索题解，但">
 
 
 
@@ -126,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/30/自动AC机-php实现-日刷千题不是梦/"/>
 
 
 
 
 
-  <title>dontbesad</title>
+  <title>自动AC机,php实现,日刷千题不是梦. | dontbesad</title>
   
 
 
@@ -157,9 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,9 +245,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -270,9 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/30/自动AC机-php实现-日刷千题不是梦/" itemprop="url">自动AC机,php实现,日刷千题不是梦.</a></h1>
+          <h1 class="post-title" itemprop="name headline">自动AC机,php实现,日刷千题不是梦.</h1>
         
 
         <div class="post-meta">
@@ -319,278 +320,75 @@
       
 
       
-        
-          
-            <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>之前在<a href="https://ac.2333.moe" target="_blank" rel="external">自家OJ</a>测过，但是效果不理想.　然后测一下杭电的，因为网上题解多，所以ac率很高.<br>来说一下思路，大概就是<br><strong>模拟hdu上登录</strong><br><strong>百度上搜索首页的题解</strong><br><strong>进入blog去正则匹配代码</strong><br><strong>将代码提交到hdu上</strong><br>大概就是这4个步骤，为什么需要模拟登录，而不直接发带有PHPSESSID的cookie呢. 我之前把第一个步骤省去试过，发现并不行，只有先登录，让服务器先去认识这个PHPSESSID.　百度上搜索题解，但是发现他的跳转页面是加密的，很难获取真实地址，所以我就把<em>百度快照</em>的地址提取出来. 进入百度快照的地址后，看了一下html代码，发现csdn代码只需要提取pre标签里(name=code,class=html/cpp)的代码就行了，而cnblogs上的代码需要把其中的一些html代码给去除. 所以我干脆直接把每个百度快照的地址中的代码直接提取pre里的代码，不过这样效率不高(可以考虑优化). 最后就是携带cookie去提交代码.</p>
+        <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>之前在<a href="https://ac.2333.moe" target="_blank" rel="external">自家OJ</a>测过，但是效果不理想.　然后测一下杭电的，因为网上题解多，所以ac率很高.<br>来说一下思路，大概就是<br><strong>模拟hdu上登录</strong><br><strong>百度上搜索首页的题解</strong><br><strong>进入blog去正则匹配代码</strong><br><strong>将代码提交到hdu上</strong><br>大概就是这4个步骤，为什么需要模拟登录，而不直接发带有PHPSESSID的cookie呢. 我之前把第一个步骤省去试过，发现并不行，只有先登录，让服务器先去认识这个PHPSESSID.　百度上搜索题解，但是发现他的跳转页面是加密的，很难获取真实地址，所以我就把<em>百度快照</em>的地址提取出来. 进入百度快照的地址后，看了一下html代码，发现csdn代码只需要提取pre标签里(name=code,class=html/cpp)的代码就行了，而cnblogs上的代码需要把其中的一些html代码给去除. 所以我干脆直接把每个百度快照的地址中的代码直接提取pre里的代码，不过这样效率不高(可以考虑优化). 最后就是携带cookie去提交代码.</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 自动ac机(单进程单线程)</div><div class="line"> * 在hdu-oj上提交题目</div><div class="line"> */</div><div class="line"> $post_cnt = <span class="number">0</span>;</div><div class="line"> <span class="comment">//模拟登录操作</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">login</span><span class="params">()</span> </span>&#123;</div><div class="line">     $url = <span class="string">"http://acm.hdu.edu.cn/userloginex.php?action=login"</span>;</div><div class="line">     $curl_login = curl_init();</div><div class="line">     curl_setopt($curl_login, CURLOPT_URL, $url);</div><div class="line">     curl_setopt($curl_login, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_USERAGENT, <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_COOKIE, <span class="string">'PHPSESSID=2n6t5o3c23v948sgc2lju3rpm6; exesubmitlang=0'</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_POST, <span class="keyword">true</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_POSTFIELDS, <span class="string">'username=orzboss&amp;userpass=orzboss&amp;login=Sign In'</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_HTTPHEADER, [<span class="string">'Content-Type: application/x-www-form-urlencoded; charset=utf-8'</span>]);</div><div class="line">     $res = curl_exec($curl_login);</div><div class="line">     curl_close($curl_login);</div><div class="line">     <span class="keyword">return</span> $res;</div><div class="line"> &#125;</div><div class="line"> <span class="comment">//在hdu oj上提交代码</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">post_code</span><span class="params">($problem_id, $code, $language=<span class="number">0</span>)</span> </span>&#123;</div><div class="line">    <span class="comment">//验证身份用的cookie</span></div><div class="line">    $code = <span class="keyword">array</span>(<span class="string">'usercode'</span> =&gt; $code, <span class="string">'problemid'</span> =&gt; $problem_id, <span class="string">'language'</span> =&gt; $language, <span class="string">'check'</span> =&gt; <span class="number">0</span>);</div><div class="line">    $url = <span class="string">'http://acm.hdu.edu.cn/submit.php?action=submit'</span>; <span class="comment">//提交网址的网站</span></div><div class="line">    $ac_curl = curl_init();</div><div class="line">    curl_setopt($ac_curl, CURLOPT_URL, $url);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_HTTPHEADER, [<span class="string">'Content-Type: application/x-www-form-urlencoded; charset=utf-8'</span>]);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_USERAGENT, <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'</span>);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_COOKIE , <span class="string">'PHPSESSID=2n6t5o3c23v948sgc2lju3rpm6; exesubmitlang=0'</span>); <span class="comment">//提交cookie</span></div><div class="line">    curl_setopt($ac_curl, CURLOPT_POST, <span class="keyword">true</span>);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_POSTFIELDS, http_build_query($code)); <span class="comment">//提交problem</span></div><div class="line">    <span class="comment">//oj的证书是不安全的,但是php默认是要去验证https网站的证书,所以要设置false</span></div><div class="line">    <span class="comment">//curl_setopt($ac_curl, CURLOPT_SSL_VERIFYPEER, false); //不验证证书</span></div><div class="line">    <span class="comment">//curl_setopt($ac_curl, CURLOPT_SSL_VERIFYHOST, false); //不验证证书</span></div><div class="line">    $result = curl_exec($ac_curl);Um..! <span class="number">3</span> posts in total. Keep on posting.</div><div class="line"></div><div class="line">    curl_close($ac_curl);</div><div class="line">&#125;</div><div class="line"><span class="comment">//在baidu上查找url快照</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">search_urls</span><span class="params">($id)</span> </span>&#123;</div><div class="line">    $search_url = <span class="string">"https://www.baidu.com/s?ie=utf-8&amp;w=hdu%20&#123;$id&#125;"</span>;</div><div class="line">    $search_curl = curl_init();</div><div class="line">    curl_setopt($search_curl, CURLOPT_URL, $search_url);</div><div class="line">    curl_setopt($search_curl, CURLOPT_USERAGENT, <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'</span>);</div><div class="line">    curl_setopt($search_curl, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</div><div class="line">    $search_result = curl_exec($search_curl);</div><div class="line">    curl_close($search_curl);</div><div class="line">    preg_match_all(<span class="string">'/&#125;"\s*href="(.*)"/Ui'</span>, $search_result, $urls);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> $urls[<span class="number">1</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//url快照中查找代码;</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parse_code</span><span class="params">($problem_id, $urls)</span> </span>&#123;</div><div class="line">    <span class="keyword">foreach</span> ($urls <span class="keyword">as</span> $url) &#123;</div><div class="line">        $str = file_get_contents($url);</div><div class="line">        preg_match_all(<span class="string">'/&lt;pre\s*.*\s*name="code" class="html"\s*.*\s*&gt;([^?]*)&lt;\/pre&gt;|&lt;pre\s*.*\s*name="code" class="cpp"\s*.*\s*&gt;([^?]*)&lt;\/pre&gt;|&lt;pre\s*.*\s*class="cpp" name="code"\s*.*\s*&gt;([^?]*)&lt;\/pre&gt;|&lt;pre\s*.*\s*class="html" name="code"\s*.*\s*&gt;([^?]*)&lt;\/pre&gt;/Ui'</span>, $str, $res);</div><div class="line">        <span class="comment">//var_dump($res);</span></div><div class="line">        <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt;= <span class="number">4</span>; ++$i) &#123;</div><div class="line">            <span class="keyword">if</span> (!<span class="keyword">empty</span>($res[$i][<span class="number">0</span>])) &#123;</div><div class="line">                $res = $res[$i][<span class="number">0</span>];</div><div class="line">                $res = str_replace([<span class="string">'&amp;nbsp;'</span>, <span class="string">'&amp;gt;'</span>, <span class="string">'&amp;lt;'</span>, <span class="string">'&amp;quot;'</span>, <span class="string">'&amp;amp;'</span>, <span class="string">'&amp;#39;'</span>], [<span class="string">' '</span>, <span class="string">'&gt;'</span>, <span class="string">'&lt;'</span>, <span class="string">'"'</span>, <span class="string">'&amp;'</span>, <span class="string">"'"</span>], $res);</div><div class="line">                <span class="keyword">if</span> (!<span class="keyword">empty</span>($res)) &#123;</div><div class="line"></div><div class="line">                    post_code($problem_id, $res);</div><div class="line">                    $GLOBALS[<span class="string">'post_cnt'</span>]++;</div><div class="line">                    <span class="comment">//usleep(100000); //毫秒级的</span></div><div class="line">                    sleep(<span class="number">15</span>); <span class="comment">//10s一次</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//ac</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ac</span><span class="params">()</span> </span>&#123;</div><div class="line">    $start_time = microtime(<span class="keyword">true</span>);</div><div class="line">    <span class="keyword">for</span> ($i = <span class="number">1024</span>; $i &lt;= <span class="number">1200</span>; ++$i) &#123;</div><div class="line">        $urls = search_urls($i);</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>($urls)) &#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        parse_code($i, $urls);</div><div class="line">    &#125;</div><div class="line">    $end_time = microtime(<span class="keyword">true</span>);</div><div class="line">    <span class="keyword">return</span> $end_time - $start_time;</div><div class="line">&#125;</div><div class="line">login();</div><div class="line">$cost_time = ac();</div><div class="line"><span class="keyword">echo</span> <span class="string">'提交次数: '</span>, $post_cnt, PHP_EOL;</div><div class="line"><span class="keyword">echo</span> <span class="string">'耗费时间: '</span>, $cost_time, PHP_EOL;</div></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/MySQL索引/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dontbesad">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dontbesad">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/22/MySQL索引/" itemprop="url">MySQL索引</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-22T10:04:51+08:00">
-                2017-06-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="索引介绍"><a href="#索引介绍" class="headerlink" title="索引介绍"></a>索引介绍</h2><p>&emsp;&emsp;索引可以将MySql的查询语句性能提升，对于中大型的DBMS，索引是必不可少的. 不过建立太多的索引也不好，频繁的插入和更新会有大量的I/O操作，索引文件中的索引也要随之改动，必然更加消耗资源影响DBMS性能. 索引是存储引擎层面的，存储引擎最常见的有InnoDB和MyISAM，用的索引都是B-Tree，而InnoDB用的索引是变种的B+Tree. 当然还有其他索引，比如hash索引，而hash索引只支持精确查找(=、&lt;=&gt;、IN). 所以基本上用的是B-Tree索引.<br>&emsp;&emsp;索引是以特殊文件的形式顺序存储, 像主键就是一种索引，不过像这种索引在文件中的位置和数据库中的位置一样. where子句中使用了索引的话，就去索引文件中查找相对应的记录，没有用索引的话，速度慢了好多倍. 比如log2(1000)和1000的区别. </p>
-<h2 id="索引命令"><a href="#索引命令" class="headerlink" title="索引命令"></a>索引命令</h2><p>  先来看一下索引命令行语法:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//显示所有表中索引</div><div class="line"><span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> <span class="string">`table_name`</span>;</div><div class="line"></div><div class="line">//添加单列或者多列索引(2种,常用第二种)</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> <span class="string">`index_name`</span> <span class="keyword">ON</span>　<span class="string">`table_name`</span>(<span class="string">`field_name`</span>, ...);</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`table_name`</span> <span class="keyword">ADD</span> <span class="keyword">INDEX</span> <span class="string">`index_name`</span>(<span class="string">`field_name`</span>, ...);</div><div class="line">//或者创建表的时候建立索引,下面是创建多列索引</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`student`</span>(</div><div class="line">  <span class="string">`id`</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span>,</div><div class="line">  <span class="string">`class`</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</div><div class="line">  <span class="string">`place`</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</div><div class="line">  <span class="keyword">key</span>(<span class="string">`class`</span>, <span class="string">`place`</span>)</div><div class="line">);</div><div class="line"></div><div class="line">//删除索引(2种,常用第二种)</div><div class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> <span class="string">`index_name`</span> <span class="keyword">ON</span> <span class="string">`table_name`</span>;</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`table_name`</span> <span class="keyword">DROP</span> <span class="keyword">INDEX</span> <span class="string">`index_name`</span>;</div></pre></td></tr></table></figure></p>
-<p>  索引操作的话，只有增和删，没有修改.<br>  索引的话，有单列和多列索引. 像PRIMARY KEY和UNIQUE KEY默认的就是单列索引也是唯一索引.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//现在我有一个20多万记录的user表</div><div class="line"></div><div class="line">//没有使用单列索引的查询情况下</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`user`</span> <span class="keyword">WHERE</span> <span class="string">`pswd`</span> = <span class="string">'lodadd'</span>; // 0.10 sec</div><div class="line"></div><div class="line">//将pswd字段添加索引的情况下</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">ADD</span> <span class="keyword">INDEX</span> <span class="string">`_pswd`</span> (<span class="string">`pswd`</span>); // 2.93 sec</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`user`</span> <span class="keyword">WHERE</span> <span class="string">`pswd`</span> = <span class="string">'lodadd'</span>; // 0.00 sec</div><div class="line"></div><div class="line">//建立索引后就快的不行，不过添加索引的过程是很慢的.</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在where子句中，如果用了多个单列索引的话，会单独使用索引，并将结果合并. 所以此时最好的方式就是使用多列索引. 如果用到了多列索引最好要遵循前缀索引原则, 选择适合的索引顺序，将索引设计到最优. 比如:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//多列索引，用到前缀索引</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`student`</span> <span class="keyword">ADD</span> <span class="keyword">INDEX</span> <span class="string">`_mul_index`</span>(<span class="string">`class`</span>, <span class="string">`place`</span>);</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`student`</span> <span class="keyword">WHERE</span> <span class="string">`class`</span> = <span class="string">'xxx'</span> <span class="keyword">AND</span> <span class="string">`place`</span> = <span class="string">'yyy'</span>;</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`student`</span> <span class="keyword">WHERE</span> <span class="string">`class`</span> = <span class="string">'xxx'</span>;</div><div class="line">//而如下的话，将不会使用索引</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`student`</span> <span class="keyword">WHERE</span> <span class="string">`place`</span> = <span class="string">'yyy'</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>&emsp;&emsp;索引也可以分为<strong>聚簇索引</strong>和<strong>非聚簇索引</strong>. 像主键就是聚簇索引，如果没有指定主键，那么InnoDB会选择唯一非空索引当做聚簇索引，要是还是没有的话，InnoDB会隐式选择一个当做聚簇索引. 所以说一个使用了InnoDB存储引擎的表中一定有且只有一个聚簇索引.<br>&emsp;&emsp;聚簇索引的话，将数据都存储在了和索引同一个B-Tree上，叶子页保存的是数据记录.<br>&emsp;&emsp;非聚簇索引(也叫二级索引)的话，就像上面列子中一样使用. 非聚簇索引的话，需要二次索引查找. 因为非聚簇索引叶子页保存的不是数据而是主键. 所以先通过索引查找到主键，然后再去聚簇索引中找到对应的数据记录. 而hash索引就减少了这种工作. </p>
-<p>这里简单介绍了常用的知识, 关于索引还有很多知识值得思考…</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/欢迎来到我的hexo博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dontbesad">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dontbesad">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/22/欢迎来到我的hexo博客/" itemprop="url">欢迎来到我的hexo博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-22T01:21:37+08:00">
-                2017-06-22
-              </time>
+              <a href="/2017/06/22/MySQL索引/" rel="next" title="MySQL索引">
+                <i class="fa fa-chevron-left"></i> MySQL索引
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <blockquote>
-<p>这是我的hexo博客, 欢迎你们.<br>我的原博客(已停更)是 <a href="http://www.cnblogs.com/Recoder" title="Recoder" target="_blank" rel="external">博客园Recoder</a><br>我的QQ&amp;WX是1399530460</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -598,6 +396,19 @@
 
 
           
+  
+  <script type="text/javascript" id="wumiiComments">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = ""; //请用代码生成文章标题
+    var wumiiSitePrefix = "https://dontbesad.github.io/";
+    var wumiiCommentParams = "&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.cn/ext/cw/widget"></script>
+  
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -617,8 +428,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -671,6 +491,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -784,10 +620,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
