@@ -253,6 +253,118 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/爬虫类-爬取网站的图片/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dontbesad">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dontbesad">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/30/爬虫类-爬取网站的图片/" itemprop="url">爬虫类-爬取网站的图片</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T21:08:24+08:00">
+                2017-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>先贴个代码留个坑.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Image_Spider</span> </span>&#123;</div><div class="line">    <span class="keyword">protected</span> $curl_handle; <span class="comment">//curl句柄</span></div><div class="line">    <span class="keyword">protected</span> $host; <span class="comment">//域名</span></div><div class="line">    <span class="keyword">protected</span> $scheme; <span class="comment">//协议 (http or https)</span></div><div class="line">    <span class="keyword">protected</span> $save_path; <span class="comment">//存放地址</span></div><div class="line">    <span class="keyword">const</span> IMAGE_SUFFIX = [<span class="string">'.gif'</span>, <span class="string">'.jpeg'</span>, <span class="string">'.jpg'</span>, <span class="string">'.png'</span>, <span class="string">'.bmp'</span>]; <span class="comment">//合法的图片后缀</span></div><div class="line"></div><div class="line">    <span class="comment">//初始化 (需要爬取的网址,爬取下来的图片所存放的绝对路径目录(相对目录也可以))</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($url, $path=<span class="string">'/home/yy/my_image'</span>)</span> </span>&#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;save_path = $path;</div><div class="line">        <span class="keyword">$this</span>-&gt;curl_handle = curl_init();</div><div class="line">        curl_setopt(<span class="keyword">$this</span>-&gt;curl_handle, CURLOPT_URL, $url);</div><div class="line">        curl_setopt(<span class="keyword">$this</span>-&gt;curl_handle, CURLOPT_RETURNTRANSFER, <span class="keyword">TRUE</span>);</div><div class="line">        curl_setopt(<span class="keyword">$this</span>-&gt;curl_handle, CURLOPT_HEADER, <span class="keyword">FALSE</span>);</div><div class="line">        curl_setopt(<span class="keyword">$this</span>-&gt;curl_handle, CURLOPT_USERAGENT, <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'</span>);</div><div class="line">        curl_setopt(<span class="keyword">$this</span>-&gt;curl_handle, CURLOPT_REFERER, <span class="string">'http://www.baidu.com'</span>);</div><div class="line"></div><div class="line">        $_url = parse_url($url);</div><div class="line">        <span class="keyword">$this</span>-&gt;scheme = $_url[<span class="string">'scheme'</span>];</div><div class="line">        <span class="keyword">$this</span>-&gt;host   = $_url[<span class="string">'host'</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123;</div><div class="line">        curl_close(<span class="keyword">$this</span>-&gt;curl_handle);</div><div class="line">        <span class="keyword">unset</span>(<span class="keyword">$this</span>-&gt;curl_handle);</div><div class="line">        <span class="keyword">unset</span>(<span class="keyword">$this</span>-&gt;save_path);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//根据图片的二进制流判断类型</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">check_image_type</span><span class="params">($image)</span> </span>&#123;</div><div class="line">        $bits = <span class="keyword">array</span>(</div><div class="line">            <span class="string">'jpg'</span> =&gt; <span class="string">"\xFF\xD8\xFF"</span>,</div><div class="line">            <span class="string">'jpeg'</span> =&gt; <span class="string">"\xFF\xD8\xFF"</span>,</div><div class="line">            <span class="string">'gif'</span> =&gt; <span class="string">"GIF"</span>,</div><div class="line">            <span class="string">'png'</span> =&gt; <span class="string">"\x89\x50\x4e\x47\x0d\x0a\x1a\x0a"</span>,</div><div class="line">            <span class="string">'bmp'</span> =&gt; <span class="string">'BM'</span></div><div class="line">        );</div><div class="line">        <span class="keyword">foreach</span> ($bits <span class="keyword">as</span> $type =&gt; $bit) &#123;</div><div class="line">            <span class="keyword">if</span> (substr($image, <span class="number">0</span>, strlen($bit)) === $bit) &#123;</div><div class="line">                <span class="keyword">return</span> $type;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">FALSE</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//获取图片的链接</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get_images_url</span><span class="params">()</span> </span>&#123;</div><div class="line">        $content = curl_exec(<span class="keyword">$this</span>-&gt;curl_handle);</div><div class="line">        preg_match_all(<span class="string">'/&lt;img\s*.*\s*src=[\'"](.*)[\'"]\s*.*\s*&gt;/Ui'</span>, $content, $match);</div><div class="line">        <span class="comment">//preg_match_all('/&lt;img src=(.*)&gt;/Ui', $content, $match);</span></div><div class="line">        <span class="keyword">return</span> $match[<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//保存图片</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">save_image</span><span class="params">($image_url)</span> </span>&#123;</div><div class="line">        $image = file_get_contents($image_url);</div><div class="line">        $filename = date(<span class="string">'ymd'</span>).<span class="string">'_'</span>.uniqid();</div><div class="line">        <span class="comment">//判断后缀是一个正确的图片后缀,但是不一定正确</span></div><div class="line">        <span class="comment">/*</span></div><div class="line">        foreach (self::IMAGE_SUFFIX as $suffix) &#123;</div><div class="line">            if (stripos($image_url, $suffix) !== FALSE) &#123;</div><div class="line">                $filename = $filename . $suffix;</div><div class="line">                file_put_contents($this-&gt;save_path . $filename, $image);</div><div class="line">                return TRUE;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        $type = <span class="keyword">$this</span>-&gt;check_image_type($image);</div><div class="line">        <span class="keyword">if</span> ($type === <span class="keyword">FALSE</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">FALSE</span>;</div><div class="line">        &#125;</div><div class="line">        $filename = $filename . <span class="string">'.'</span> . $type;</div><div class="line">        file_put_contents(<span class="keyword">$this</span>-&gt;save_path.$filename, $image);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">FALSE</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//将上面两个方法合并</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">save_action</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//要是目录不存在的话就创建</span></div><div class="line">        <span class="keyword">if</span> (!is_dir(<span class="keyword">$this</span>-&gt;save_path)) &#123;</div><div class="line">            mkdir(<span class="keyword">$this</span>-&gt;save_path);</div><div class="line">        &#125;</div><div class="line">        $path_length = strlen(<span class="keyword">$this</span>-&gt;save_path);</div><div class="line">        <span class="comment">//在save_path后面添加一个</span></div><div class="line">        <span class="keyword">if</span> ($path_length &amp;&amp; mb_substr(<span class="keyword">$this</span>-&gt;save_path, $path_length - <span class="number">1</span>, <span class="number">1</span>) != DIRECTORY_SEPARATOR) &#123;</div><div class="line">            <span class="keyword">$this</span>-&gt;save_path = <span class="keyword">$this</span>-&gt;save_path . DIRECTORY_SEPARATOR;</div><div class="line">        &#125;</div><div class="line">        $image_urls = <span class="keyword">$this</span>-&gt;get_images_url();</div><div class="line">        <span class="keyword">foreach</span> ($image_urls <span class="keyword">as</span> $image_url) &#123;</div><div class="line">            <span class="comment">//如果匹配下来的img标签中的链接不是一个正确的网址地址</span></div><div class="line">            <span class="keyword">if</span> (mb_substr($image_url, <span class="number">0</span>, <span class="number">1</span>) == <span class="string">'/'</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (mb_substr($image_url, <span class="number">1</span>, <span class="number">1</span>) == <span class="string">'/'</span>) &#123;</div><div class="line">                    $image_url = <span class="keyword">$this</span>-&gt;scheme . <span class="string">'://'</span> . mb_substr($image_url, <span class="number">2</span>);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    $image_url = <span class="keyword">$this</span>-&gt;scheme . <span class="string">'://'</span> . <span class="keyword">$this</span>-&gt;host . mb_substr($image_url, <span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stripos($image_url, <span class="string">'http'</span>) === <span class="keyword">FALSE</span>) &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">$this</span>-&gt;save_image($image_url);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">$url = <span class="string">'http://www.nipic.com/index.html'</span>;</div><div class="line">$obj = <span class="keyword">new</span> Image_Spider($url);</div><div class="line">$obj-&gt;save_action();</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/自动AC机-php实现-日刷千题不是梦/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -633,7 +745,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
