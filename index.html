@@ -154,6 +154,107 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Go性能测试总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/07/Go性能测试总结/">GO性能测试总结</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/07/Go性能测试总结/" class="archive-article-date">
+  	<time datetime="2017-08-07T11:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Golang测试"><a href="#Golang测试" class="headerlink" title="Golang测试"></a>Golang测试</h1><h2 id="Benchmark性能测试"><a href="#Benchmark性能测试" class="headerlink" title="Benchmark性能测试"></a>Benchmark性能测试</h2><h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>在<code>*_test.go</code>文件中添加<code>Benchmark*</code>的函数，例如下:<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkWeb</span><span class="params">(b *testing.B)</span></span> &#123;</div><div class="line">	b.ReportAllocs() <span class="comment">//结果会包含内存分配信息</span></div><div class="line"></div><div class="line">    input := []<span class="keyword">string</span>&#123;<span class="string">"Hello"</span>, <span class="string">"World"</span>&#125;</div><div class="line"></div><div class="line">    b.ResetTimer() <span class="comment">//重置计时器，避免for之前的代码运行占用时长</span></div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; b.N; i++ &#123;</div><div class="line">		</div><div class="line">		result := strings.Join(input, <span class="string">" "</span>)</div><div class="line">		<span class="keyword">if</span> result != <span class="string">"Hello World"</span> &#123;</div><div class="line">			b.Error(<span class="string">"Error : "</span> + result)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p>运行基准测试，结果如下:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> go test -bench="." t_test.go</div><div class="line">goos: linux</div><div class="line">goarch: amd64</div><div class="line">BenchmarkWeb-4          20000000                71.5 ns/op            16 B/op          1 allocs/op</div><div class="line">PASS</div><div class="line">ok      command-line-arguments  1.518s</div></pre></td></tr></table></figure></p>
+<h3 id="结果详解和参数解释"><a href="#结果详解和参数解释" class="headerlink" title="结果详解和参数解释"></a>结果详解和参数解释</h3><p><code>-bench=</code>接受一个表达式，<code>.</code>表示接受所有基准测试。</p>
+<p><code>-8</code>表示GOMAXPROCS的值，<code>20000000</code>表示for循环次数，<code>71.5ns/op</code>表示每次循环要花费71.5纳秒，<code>16B/op</code>表示每次循环需要分配的内存大小，<code>1allocs/op</code>表示分配内存的次数。</p>
+<p>默认测试时间是1s，调用了2千万次，如果想让测试时间更长，可以通过<code>-benchtime</code>指定时间; 如果不想在函数中写<code>b.ReportAllocs()</code>又想显示内存相关信息，那么可以加上<code>-benchmem</code>显示内存信息。</p>
+<p>例如<code>go test -bench=&quot;.&quot; -benchmem -benchtime=3s t_test.go</code></p>
+<h3 id="更详细的分析"><a href="#更详细的分析" class="headerlink" title="更详细的分析"></a>更详细的分析</h3><p>之前的<code>benchmark</code>命令执行的结果只能看到函数的整体性能，要是函数内部比较复杂，想看更具体的内部消耗呢? 这个时候就用到了<code>Cpu Profile</code></p>
+<h4 id="Cpu-Profile"><a href="#Cpu-Profile" class="headerlink" title="Cpu Profile"></a>Cpu Profile</h4><p>通过<code>Cpu Profile</code>，可以查看内存、cpu、更底层的信息，通过这些信息就可以更好的查找性能瓶颈。</p>
+<p>生成cpu性能描述文件的命令是<code>go test -bench=. -cpuprofile profile_cpu.out t_test.go</code>，然后会生成<code>profile_cpu.out</code>和xxx.test文件，这个xxx是跟你<code>t_test.go</code>文件中的package名字一样。</p>
+<p>所有的信息描述在<code>profile_cpu.out</code>这个文件内，当然可以叫任何名字。</p>
+<h4 id="直观查看调用链"><a href="#直观查看调用链" class="headerlink" title="直观查看调用链"></a>直观查看调用链</h4><p>通过上面的命令，我们知道生成了<code>profile_cpu.out</code>这个文件</p>
+<p>我们想要查看详细的调用链路性能，通过svg、pdf或者png图直观查看(需要安装graphviz库)，通过下面的命令生成:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> go tool pprof -svg profile_cpu.out &gt; res.svg</div><div class="line"><span class="meta">$</span> go tool pprof -pdf profile_cpu.out &gt; res.pdf</div><div class="line"><span class="meta">$</span> go tool pprof -png profile_cpu.out &gt; res.png</div></pre></td></tr></table></figure>
+<h3 id="Web网页形式显示-包含火焰图"><a href="#Web网页形式显示-包含火焰图" class="headerlink" title="Web网页形式显示(包含火焰图)"></a>Web网页形式显示(包含火焰图)</h3><p>我们使用<code>pprof</code>这个工具可以以网页的信息查看性能信息。</p>
+<p>安装命令:<code>go get github.com/google/pprof</code>，貌似go1.10及以后可以用<code>go tool pprof</code>达到一样的效果。</p>
+<p>下面是详细的命令例子:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> go test -bench=. -benchmem -benchtime=1s t_test.go -cpuprofile cpu.out #生成cpu profile文件</div><div class="line"><span class="meta">$</span> pprof -http="127.0.0.1:10086" cpu.out</div></pre></td></tr></table></figure></p>
+<h2 id="接口性能测试"><a href="#接口性能测试" class="headerlink" title="接口性能测试"></a>接口性能测试</h2><h3 id="Vegeta"><a href="#Vegeta" class="headerlink" title="Vegeta"></a>Vegeta</h3><p><a href="https://github.com/tsenart/vegeta" target="_blank" rel="external"><em>vegeta</em></a> 是一个用Go语言编写的HTTP测试工具，提供了命令行和开发库。</p>
+<p>标准输入:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> echo 'GET http://localhost:9090/api/echo' | vegeta attack -duration=3s -rate=100 &gt; res.bin #生成结果文件</div></pre></td></tr></table></figure></p>
+<p><code>-duration</code>测试时长，0表示永久。</p>
+<p><code>-rate</code>每秒请求数，默认50。</p>
+<p>目标输入为文件:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> vegeta attack -targets=targets.txt -duration=1s &gt; res.bin</div></pre></td></tr></table></figure></p>
+<p><code>targets.txt</code>文件内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET http://localhost:9090/echo</div><div class="line">Authorization: Token ABCDXXX</div></pre></td></tr></table></figure></p>
+<p>导出结果:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cat res.bin | vegeta report -reporter=json &gt; res.json #json</div><div class="line"><span class="meta">$</span> cat res.bin | vegeta report -reporter=plot &gt; res.html #html</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.cnhzz.com/vegeta/" target="_blank" rel="external">参考link</a></p>
+<h3 id="Alex"><a href="#Alex" class="headerlink" title="Alex"></a>Alex</h3><p>(<em>Alex</em>)[<a href="https://github.com/ireaderlab/alex" target="_blank" rel="external">https://github.com/ireaderlab/alex</a>] 是基于<em>vegeta lib</em>和<em>boom</em>的web压测网站。</p>
+<p>具体的的东西我已经打包成docker镜像上传了，只需要执行下面的命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> docker pull dontbesad/alexweb:mongo</div><div class="line"><span class="meta">$</span> docker run -itd -p 8000:8000 dontbesad/alexweb:mongo</div></pre></td></tr></table></figure>
+<p>然后访问<code>http://localhost:8000</code>即可。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">GO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/07/Go性能测试总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-操作系统笔记-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -637,6 +738,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">GO</a>
               </li>
             
             <div class="clearfix"></div>
