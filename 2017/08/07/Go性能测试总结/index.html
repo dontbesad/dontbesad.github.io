@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>GO性能测试总结 | dontbesad</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Golang测试Benchmark性能测试代码示例在*_test.go文件中添加Benchmark*的函数，例如下:1234567891011121314func BenchmarkWeb(b *testing.B) &amp;#123;	b.ReportAllocs() //结果会包含内存分配信息    input := []string&amp;#123;&quot;Hello&quot;, &quot;World&quot;&amp;#125;    b">
+  <meta name="description" content="Go性能测试总结Benchmark性能测试代码示例在*_test.go文件中添加Benchmark*的函数，例如下:1234567891011121314func BenchmarkWeb(b *testing.B) &amp;#123;	b.ReportAllocs() //结果会包含内存分配信息    input := []string&amp;#123;&quot;Hello&quot;, &quot;World&quot;&amp;#125;    b">
 <meta name="keywords" content="GO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GO性能测试总结">
 <meta property="og:url" content="http://yoursite.com/2017/08/07/Go性能测试总结/index.html">
 <meta property="og:site_name" content="dontbesad">
-<meta property="og:description" content="Golang测试Benchmark性能测试代码示例在*_test.go文件中添加Benchmark*的函数，例如下:1234567891011121314func BenchmarkWeb(b *testing.B) &amp;#123;	b.ReportAllocs() //结果会包含内存分配信息    input := []string&amp;#123;&quot;Hello&quot;, &quot;World&quot;&amp;#125;    b">
-<meta property="og:updated_time" content="2018-08-07T11:11:44.870Z">
+<meta property="og:description" content="Go性能测试总结Benchmark性能测试代码示例在*_test.go文件中添加Benchmark*的函数，例如下:1234567891011121314func BenchmarkWeb(b *testing.B) &amp;#123;	b.ReportAllocs() //结果会包含内存分配信息    input := []string&amp;#123;&quot;Hello&quot;, &quot;World&quot;&amp;#125;    b">
+<meta property="og:updated_time" content="2018-08-07T11:43:15.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GO性能测试总结">
-<meta name="twitter:description" content="Golang测试Benchmark性能测试代码示例在*_test.go文件中添加Benchmark*的函数，例如下:1234567891011121314func BenchmarkWeb(b *testing.B) &amp;#123;	b.ReportAllocs() //结果会包含内存分配信息    input := []string&amp;#123;&quot;Hello&quot;, &quot;World&quot;&amp;#125;    b">
+<meta name="twitter:description" content="Go性能测试总结Benchmark性能测试代码示例在*_test.go文件中添加Benchmark*的函数，例如下:1234567891011121314func BenchmarkWeb(b *testing.B) &amp;#123;	b.ReportAllocs() //结果会包含内存分配信息    input := []string&amp;#123;&quot;Hello&quot;, &quot;World&quot;&amp;#125;    b">
   
     <link rel="alternative" href="/atom.xml" title="dontbesad" type="application/atom+xml">
   
@@ -174,7 +174,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Golang测试"><a href="#Golang测试" class="headerlink" title="Golang测试"></a>Golang测试</h1><h2 id="Benchmark性能测试"><a href="#Benchmark性能测试" class="headerlink" title="Benchmark性能测试"></a>Benchmark性能测试</h2><h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>在<code>*_test.go</code>文件中添加<code>Benchmark*</code>的函数，例如下:<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkWeb</span><span class="params">(b *testing.B)</span></span> &#123;</div><div class="line">	b.ReportAllocs() <span class="comment">//结果会包含内存分配信息</span></div><div class="line"></div><div class="line">    input := []<span class="keyword">string</span>&#123;<span class="string">"Hello"</span>, <span class="string">"World"</span>&#125;</div><div class="line"></div><div class="line">    b.ResetTimer() <span class="comment">//重置计时器，避免for之前的代码运行占用时长</span></div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; b.N; i++ &#123;</div><div class="line">		</div><div class="line">		result := strings.Join(input, <span class="string">" "</span>)</div><div class="line">		<span class="keyword">if</span> result != <span class="string">"Hello World"</span> &#123;</div><div class="line">			b.Error(<span class="string">"Error : "</span> + result)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h1 id="Go性能测试总结"><a href="#Go性能测试总结" class="headerlink" title="Go性能测试总结"></a>Go性能测试总结</h1><h2 id="Benchmark性能测试"><a href="#Benchmark性能测试" class="headerlink" title="Benchmark性能测试"></a>Benchmark性能测试</h2><h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>在<code>*_test.go</code>文件中添加<code>Benchmark*</code>的函数，例如下:<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkWeb</span><span class="params">(b *testing.B)</span></span> &#123;</div><div class="line">	b.ReportAllocs() <span class="comment">//结果会包含内存分配信息</span></div><div class="line"></div><div class="line">    input := []<span class="keyword">string</span>&#123;<span class="string">"Hello"</span>, <span class="string">"World"</span>&#125;</div><div class="line"></div><div class="line">    b.ResetTimer() <span class="comment">//重置计时器，避免for之前的代码运行占用时长</span></div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; b.N; i++ &#123;</div><div class="line">		</div><div class="line">		result := strings.Join(input, <span class="string">" "</span>)</div><div class="line">		<span class="keyword">if</span> result != <span class="string">"Hello World"</span> &#123;</div><div class="line">			b.Error(<span class="string">"Error : "</span> + result)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p>运行基准测试，结果如下:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> go test -bench="." t_test.go</div><div class="line">goos: linux</div><div class="line">goarch: amd64</div><div class="line">BenchmarkWeb-4          20000000                71.5 ns/op            16 B/op          1 allocs/op</div><div class="line">PASS</div><div class="line">ok      command-line-arguments  1.518s</div></pre></td></tr></table></figure></p>
 <h3 id="结果详解和参数解释"><a href="#结果详解和参数解释" class="headerlink" title="结果详解和参数解释"></a>结果详解和参数解释</h3><p><code>-bench=</code>接受一个表达式，<code>.</code>表示接受所有基准测试。</p>
 <p><code>-8</code>表示GOMAXPROCS的值，<code>20000000</code>表示for循环次数，<code>71.5ns/op</code>表示每次循环要花费71.5纳秒，<code>16B/op</code>表示每次循环需要分配的内存大小，<code>1allocs/op</code>表示分配内存的次数。</p>
@@ -198,7 +198,7 @@
 <p><code>targets.txt</code>文件内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET http://localhost:9090/echo</div><div class="line">Authorization: Token ABCDXXX</div></pre></td></tr></table></figure></p>
 <p>导出结果:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cat res.bin | vegeta report -reporter=json &gt; res.json #json</div><div class="line"><span class="meta">$</span> cat res.bin | vegeta report -reporter=plot &gt; res.html #html</div></pre></td></tr></table></figure></p>
 <p><a href="https://www.cnhzz.com/vegeta/" target="_blank" rel="external">参考link</a></p>
-<h3 id="Alex"><a href="#Alex" class="headerlink" title="Alex"></a>Alex</h3><p>(<em>Alex</em>)[<a href="https://github.com/ireaderlab/alex" target="_blank" rel="external">https://github.com/ireaderlab/alex</a>] 是基于<em>vegeta lib</em>和<em>boom</em>的web压测网站。</p>
+<h3 id="Alex"><a href="#Alex" class="headerlink" title="Alex"></a>Alex</h3><p><a href="https://github.com/ireaderlab/alex" target="_blank" rel="external"><em>Alex</em></a> 是基于<em>vegeta lib</em>和<em>boom</em>的web压测网站。</p>
 <p>具体的的东西我已经打包成docker镜像上传了，只需要执行下面的命令:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> docker pull dontbesad/alexweb:mongo</div><div class="line"><span class="meta">$</span> docker run -itd -p 8000:8000 dontbesad/alexweb:mongo</div></pre></td></tr></table></figure>
 <p>然后访问<code>http://localhost:8000</code>即可。</p>
@@ -454,15 +454,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">GO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GO</a>
               </li>
             
             <div class="clearfix"></div>
