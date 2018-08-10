@@ -161,13 +161,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/07/Go性能测试总结/">GO性能测试总结</a>
+      <a class="article-title" href="/2018/08/07/Go性能测试总结/">GO性能测试总结</a>
     </h1>
   
 
         
-        <a href="/2017/08/07/Go性能测试总结/" class="archive-article-date">
-  	<time datetime="2017-08-07T11:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
+        <a href="/2018/08/07/Go性能测试总结/" class="archive-article-date">
+  	<time datetime="2018-08-07T11:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-07</time>
 </a>
         
       </header>
@@ -202,6 +202,9 @@
 <p>具体的的东西我已经打包成docker镜像上传了，只需要执行下面的命令:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> docker pull dontbesad/alexweb:mongo</div><div class="line"><span class="meta">$</span> docker run -itd -p 8000:8000 dontbesad/alexweb:mongo</div></pre></td></tr></table></figure>
 <p>然后访问<code>http://localhost:8000</code>即可。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我们可以先通过<em>Alex</em>或者<em>Vegeta</em>测试一个接口的QPS，如果感觉接口QPS不够，那么我们接下来用<em>benchmark</em>方案来检测具体性能。</p>
+<p>下面是一键脚本例子:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line"></div><div class="line">go test -v -run=nil -bench=. -benchmem  -benchtime=5s *.go \</div><div class="line">    -cpuprofile cpu.out -o bench-test.bin &amp;&amp; rm bench-test.bin &amp;&amp; \</div><div class="line">    /home/yy/go/bin/pprof -http="127.0.0.1:10086" cpu.out</div></pre></td></tr></table></figure></p>
+<p>执行上述脚本之后，访问<code>http://localhost:10086</code>即可查看性能信息。</p>
 
       
 
@@ -225,7 +228,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/07/Go性能测试总结/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/07/Go性能测试总结/">展开全文 >></a>
         </p>
       
 
@@ -729,10 +732,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">GO</a>
               </li>
              
@@ -742,6 +741,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
             
             <div class="clearfix"></div>

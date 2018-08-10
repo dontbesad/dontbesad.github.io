@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>自动AC机,php实现,日刷千题不是梦. | dontbesad</title>
+  <title>GO性能测试总结 | dontbesad</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="思路之前在自家OJ测过，但是效果不理想.　然后测一下杭电的，因为网上题解多，所以ac率很高.来说一下思路，大概就是模拟hdu上登录百度上搜索首页的题解进入blog去正则匹配代码将代码提交到hdu上大概就是这4个步骤，为什么需要模拟登录，而不直接发带有PHPSESSID的cookie呢. 我之前把第一个步骤省去试过，发现并不行，只有先登录，让服务器先去认识这个PHPSESSID.　百度上搜索题解，但">
-<meta name="keywords" content="PHP">
+  <meta name="description" content="Go性能测试总结Benchmark性能测试代码示例在*_test.go文件中添加Benchmark*的函数，例如下:1234567891011121314func BenchmarkWeb(b *testing.B) &amp;#123;	b.ReportAllocs() //结果会包含内存分配信息    input := []string&amp;#123;&quot;Hello&quot;, &quot;World&quot;&amp;#125;    b">
+<meta name="keywords" content="GO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自动AC机,php实现,日刷千题不是梦.">
-<meta property="og:url" content="http://yoursite.com/2017/06/30/自动AC机-php实现-日刷千题不是梦/index.html">
+<meta property="og:title" content="GO性能测试总结">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/Go性能测试总结/index.html">
 <meta property="og:site_name" content="dontbesad">
-<meta property="og:description" content="思路之前在自家OJ测过，但是效果不理想.　然后测一下杭电的，因为网上题解多，所以ac率很高.来说一下思路，大概就是模拟hdu上登录百度上搜索首页的题解进入blog去正则匹配代码将代码提交到hdu上大概就是这4个步骤，为什么需要模拟登录，而不直接发带有PHPSESSID的cookie呢. 我之前把第一个步骤省去试过，发现并不行，只有先登录，让服务器先去认识这个PHPSESSID.　百度上搜索题解，但">
-<meta property="og:updated_time" content="2017-06-30T01:54:00.411Z">
+<meta property="og:description" content="Go性能测试总结Benchmark性能测试代码示例在*_test.go文件中添加Benchmark*的函数，例如下:1234567891011121314func BenchmarkWeb(b *testing.B) &amp;#123;	b.ReportAllocs() //结果会包含内存分配信息    input := []string&amp;#123;&quot;Hello&quot;, &quot;World&quot;&amp;#125;    b">
+<meta property="og:updated_time" content="2018-08-10T08:21:48.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自动AC机,php实现,日刷千题不是梦.">
-<meta name="twitter:description" content="思路之前在自家OJ测过，但是效果不理想.　然后测一下杭电的，因为网上题解多，所以ac率很高.来说一下思路，大概就是模拟hdu上登录百度上搜索首页的题解进入blog去正则匹配代码将代码提交到hdu上大概就是这4个步骤，为什么需要模拟登录，而不直接发带有PHPSESSID的cookie呢. 我之前把第一个步骤省去试过，发现并不行，只有先登录，让服务器先去认识这个PHPSESSID.　百度上搜索题解，但">
+<meta name="twitter:title" content="GO性能测试总结">
+<meta name="twitter:description" content="Go性能测试总结Benchmark性能测试代码示例在*_test.go文件中添加Benchmark*的函数，例如下:1234567891011121314func BenchmarkWeb(b *testing.B) &amp;#123;	b.ReportAllocs() //结果会包含内存分配信息    input := []string&amp;#123;&quot;Hello&quot;, &quot;World&quot;&amp;#125;    b">
   
     <link rel="alternative" href="/atom.xml" title="dontbesad" type="application/atom+xml">
   
@@ -154,28 +154,57 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-自动AC机-php实现-日刷千题不是梦" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Go性能测试总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      自动AC机,php实现,日刷千题不是梦.
+      GO性能测试总结
     </h1>
   
 
         
-        <a href="/2017/06/30/自动AC机-php实现-日刷千题不是梦/" class="archive-article-date">
-  	<time datetime="2017-06-30T01:19:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-30</time>
+        <a href="/2018/08/07/Go性能测试总结/" class="archive-article-date">
+  	<time datetime="2018-08-07T11:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>之前在<a href="https://ac.2333.moe" target="_blank" rel="external">自家OJ</a>测过，但是效果不理想.　然后测一下杭电的，因为网上题解多，所以ac率很高.<br>来说一下思路，大概就是<br><strong>模拟hdu上登录</strong><br><strong>百度上搜索首页的题解</strong><br><strong>进入blog去正则匹配代码</strong><br><strong>将代码提交到hdu上</strong><br>大概就是这4个步骤，为什么需要模拟登录，而不直接发带有PHPSESSID的cookie呢. 我之前把第一个步骤省去试过，发现并不行，只有先登录，让服务器先去认识这个PHPSESSID.　百度上搜索题解，但是发现他的跳转页面是加密的，很难获取真实地址，所以我就把<em>百度快照</em>的地址提取出来. 进入百度快照的地址后，看了一下html代码，发现csdn代码只需要提取pre标签里(name=code,class=html/cpp)的代码就行了，而cnblogs上的代码需要把其中的一些html代码给去除. 所以我干脆直接把每个百度快照的地址中的代码直接提取pre里的代码，不过这样效率不高(可以考虑优化). 最后就是携带cookie去提交代码.</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 自动ac机(单进程单线程)</div><div class="line"> * 在hdu-oj上提交题目</div><div class="line"> */</div><div class="line"> $post_cnt = <span class="number">0</span>;</div><div class="line"> <span class="comment">//模拟登录操作</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">login</span><span class="params">()</span> </span>&#123;</div><div class="line">     $url = <span class="string">"http://acm.hdu.edu.cn/userloginex.php?action=login"</span>;</div><div class="line">     $curl_login = curl_init();</div><div class="line">     curl_setopt($curl_login, CURLOPT_URL, $url);</div><div class="line">     curl_setopt($curl_login, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_USERAGENT, <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_COOKIE, <span class="string">'PHPSESSID=2n6t5o3c23v948sgc2lju3rpm6; exesubmitlang=0'</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_POST, <span class="keyword">true</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_POSTFIELDS, <span class="string">'username=orzboss&amp;userpass=orzboss&amp;login=Sign In'</span>);</div><div class="line">     curl_setopt($curl_login, CURLOPT_HTTPHEADER, [<span class="string">'Content-Type: application/x-www-form-urlencoded; charset=utf-8'</span>]);</div><div class="line">     $res = curl_exec($curl_login);</div><div class="line">     curl_close($curl_login);</div><div class="line">     <span class="keyword">return</span> $res;</div><div class="line"> &#125;</div><div class="line"> <span class="comment">//在hdu oj上提交代码</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">post_code</span><span class="params">($problem_id, $code, $language=<span class="number">0</span>)</span> </span>&#123;</div><div class="line">    <span class="comment">//验证身份用的cookie</span></div><div class="line">    $code = <span class="keyword">array</span>(<span class="string">'usercode'</span> =&gt; $code, <span class="string">'problemid'</span> =&gt; $problem_id, <span class="string">'language'</span> =&gt; $language, <span class="string">'check'</span> =&gt; <span class="number">0</span>);</div><div class="line">    $url = <span class="string">'http://acm.hdu.edu.cn/submit.php?action=submit'</span>; <span class="comment">//提交网址的网站</span></div><div class="line">    $ac_curl = curl_init();</div><div class="line">    curl_setopt($ac_curl, CURLOPT_URL, $url);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_HTTPHEADER, [<span class="string">'Content-Type: application/x-www-form-urlencoded; charset=utf-8'</span>]);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_USERAGENT, <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'</span>);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_COOKIE , <span class="string">'PHPSESSID=2n6t5o3c23v948sgc2lju3rpm6; exesubmitlang=0'</span>); <span class="comment">//提交cookie</span></div><div class="line">    curl_setopt($ac_curl, CURLOPT_POST, <span class="keyword">true</span>);</div><div class="line">    curl_setopt($ac_curl, CURLOPT_POSTFIELDS, http_build_query($code)); <span class="comment">//提交problem</span></div><div class="line">    <span class="comment">//oj的证书是不安全的,但是php默认是要去验证https网站的证书,所以要设置false</span></div><div class="line">    <span class="comment">//curl_setopt($ac_curl, CURLOPT_SSL_VERIFYPEER, false); //不验证证书</span></div><div class="line">    <span class="comment">//curl_setopt($ac_curl, CURLOPT_SSL_VERIFYHOST, false); //不验证证书</span></div><div class="line">    $result = curl_exec($ac_curl);</div><div class="line"></div><div class="line">    curl_close($ac_curl);</div><div class="line">&#125;</div><div class="line"><span class="comment">//在baidu上查找url快照</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">search_urls</span><span class="params">($id)</span> </span>&#123;</div><div class="line">    $search_url = <span class="string">"https://www.baidu.com/s?ie=utf-8&amp;w=hdu%20&#123;$id&#125;"</span>;</div><div class="line">    $search_curl = curl_init();</div><div class="line">    curl_setopt($search_curl, CURLOPT_URL, $search_url);</div><div class="line">    curl_setopt($search_curl, CURLOPT_USERAGENT, <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'</span>);</div><div class="line">    curl_setopt($search_curl, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</div><div class="line">    $search_result = curl_exec($search_curl);</div><div class="line">    curl_close($search_curl);</div><div class="line">    preg_match_all(<span class="string">'/&#125;"\s*href="(.*)"/Ui'</span>, $search_result, $urls);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> $urls[<span class="number">1</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//url快照中查找代码;</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parse_code</span><span class="params">($problem_id, $urls)</span> </span>&#123;</div><div class="line">    <span class="keyword">foreach</span> ($urls <span class="keyword">as</span> $url) &#123;</div><div class="line">        $str = file_get_contents($url);</div><div class="line">        preg_match_all(<span class="string">'/&lt;pre\s*.*\s*name="code" class="html"\s*.*\s*&gt;([^?]*)&lt;\/pre&gt;|&lt;pre\s*.*\s*name="code" class="cpp"\s*.*\s*&gt;([^?]*)&lt;\/pre&gt;|&lt;pre\s*.*\s*class="cpp" name="code"\s*.*\s*&gt;([^?]*)&lt;\/pre&gt;|&lt;pre\s*.*\s*class="html" name="code"\s*.*\s*&gt;([^?]*)&lt;\/pre&gt;/Ui'</span>, $str, $res);</div><div class="line">        <span class="comment">//var_dump($res);</span></div><div class="line">        <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt;= <span class="number">4</span>; ++$i) &#123;</div><div class="line">            <span class="keyword">if</span> (!<span class="keyword">empty</span>($res[$i][<span class="number">0</span>])) &#123;</div><div class="line">                $res = $res[$i][<span class="number">0</span>];</div><div class="line">                $res = str_replace([<span class="string">'&amp;nbsp;'</span>, <span class="string">'&amp;gt;'</span>, <span class="string">'&amp;lt;'</span>, <span class="string">'&amp;quot;'</span>, <span class="string">'&amp;amp;'</span>, <span class="string">'&amp;#39;'</span>], [<span class="string">' '</span>, <span class="string">'&gt;'</span>, <span class="string">'&lt;'</span>, <span class="string">'"'</span>, <span class="string">'&amp;'</span>, <span class="string">"'"</span>], $res);</div><div class="line">                <span class="keyword">if</span> (!<span class="keyword">empty</span>($res)) &#123;</div><div class="line"></div><div class="line">                    post_code($problem_id, $res);</div><div class="line">                    $GLOBALS[<span class="string">'post_cnt'</span>]++;</div><div class="line">                    <span class="comment">//usleep(100000); //毫秒级的</span></div><div class="line">                    sleep(<span class="number">15</span>); <span class="comment">//10s一次</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//ac</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ac</span><span class="params">()</span> </span>&#123;</div><div class="line">    $start_time = microtime(<span class="keyword">true</span>);</div><div class="line">    <span class="keyword">for</span> ($i = <span class="number">1024</span>; $i &lt;= <span class="number">1200</span>; ++$i) &#123;</div><div class="line">        $urls = search_urls($i);</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>($urls)) &#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        parse_code($i, $urls);</div><div class="line">    &#125;</div><div class="line">    $end_time = microtime(<span class="keyword">true</span>);</div><div class="line">    <span class="keyword">return</span> $end_time - $start_time;</div><div class="line">&#125;</div><div class="line">login();</div><div class="line">$cost_time = ac();</div><div class="line"><span class="keyword">echo</span> <span class="string">'提交次数: '</span>, $post_cnt, PHP_EOL;</div><div class="line"><span class="keyword">echo</span> <span class="string">'耗费时间: '</span>, $cost_time, PHP_EOL;</div></pre></td></tr></table></figure>
+        <h1 id="Go性能测试总结"><a href="#Go性能测试总结" class="headerlink" title="Go性能测试总结"></a>Go性能测试总结</h1><h2 id="Benchmark性能测试"><a href="#Benchmark性能测试" class="headerlink" title="Benchmark性能测试"></a>Benchmark性能测试</h2><h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>在<code>*_test.go</code>文件中添加<code>Benchmark*</code>的函数，例如下:<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkWeb</span><span class="params">(b *testing.B)</span></span> &#123;</div><div class="line">	b.ReportAllocs() <span class="comment">//结果会包含内存分配信息</span></div><div class="line"></div><div class="line">    input := []<span class="keyword">string</span>&#123;<span class="string">"Hello"</span>, <span class="string">"World"</span>&#125;</div><div class="line"></div><div class="line">    b.ResetTimer() <span class="comment">//重置计时器，避免for之前的代码运行占用时长</span></div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; b.N; i++ &#123;</div><div class="line">		</div><div class="line">		result := strings.Join(input, <span class="string">" "</span>)</div><div class="line">		<span class="keyword">if</span> result != <span class="string">"Hello World"</span> &#123;</div><div class="line">			b.Error(<span class="string">"Error : "</span> + result)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p>运行基准测试，结果如下:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> go test -bench="." t_test.go</div><div class="line">goos: linux</div><div class="line">goarch: amd64</div><div class="line">BenchmarkWeb-4          20000000                71.5 ns/op            16 B/op          1 allocs/op</div><div class="line">PASS</div><div class="line">ok      command-line-arguments  1.518s</div></pre></td></tr></table></figure></p>
+<h3 id="结果详解和参数解释"><a href="#结果详解和参数解释" class="headerlink" title="结果详解和参数解释"></a>结果详解和参数解释</h3><p><code>-bench=</code>接受一个表达式，<code>.</code>表示接受所有基准测试。</p>
+<p><code>-8</code>表示GOMAXPROCS的值，<code>20000000</code>表示for循环次数，<code>71.5ns/op</code>表示每次循环要花费71.5纳秒，<code>16B/op</code>表示每次循环需要分配的内存大小，<code>1allocs/op</code>表示分配内存的次数。</p>
+<p>默认测试时间是1s，调用了2千万次，如果想让测试时间更长，可以通过<code>-benchtime</code>指定时间; 如果不想在函数中写<code>b.ReportAllocs()</code>又想显示内存相关信息，那么可以加上<code>-benchmem</code>显示内存信息。</p>
+<p>例如<code>go test -bench=&quot;.&quot; -benchmem -benchtime=3s t_test.go</code></p>
+<h3 id="更详细的分析"><a href="#更详细的分析" class="headerlink" title="更详细的分析"></a>更详细的分析</h3><p>之前的<code>benchmark</code>命令执行的结果只能看到函数的整体性能，要是函数内部比较复杂，想看更具体的内部消耗呢? 这个时候就用到了<code>Cpu Profile</code></p>
+<h4 id="Cpu-Profile"><a href="#Cpu-Profile" class="headerlink" title="Cpu Profile"></a>Cpu Profile</h4><p>通过<code>Cpu Profile</code>，可以查看内存、cpu、更底层的信息，通过这些信息就可以更好的查找性能瓶颈。</p>
+<p>生成cpu性能描述文件的命令是<code>go test -bench=. -cpuprofile profile_cpu.out t_test.go</code>，然后会生成<code>profile_cpu.out</code>和xxx.test文件，这个xxx是跟你<code>t_test.go</code>文件中的package名字一样。</p>
+<p>所有的信息描述在<code>profile_cpu.out</code>这个文件内，当然可以叫任何名字。</p>
+<h4 id="直观查看调用链"><a href="#直观查看调用链" class="headerlink" title="直观查看调用链"></a>直观查看调用链</h4><p>通过上面的命令，我们知道生成了<code>profile_cpu.out</code>这个文件</p>
+<p>我们想要查看详细的调用链路性能，通过svg、pdf或者png图直观查看(需要安装graphviz库)，通过下面的命令生成:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> go tool pprof -svg profile_cpu.out &gt; res.svg</div><div class="line"><span class="meta">$</span> go tool pprof -pdf profile_cpu.out &gt; res.pdf</div><div class="line"><span class="meta">$</span> go tool pprof -png profile_cpu.out &gt; res.png</div></pre></td></tr></table></figure>
+<h3 id="Web网页形式显示-包含火焰图"><a href="#Web网页形式显示-包含火焰图" class="headerlink" title="Web网页形式显示(包含火焰图)"></a>Web网页形式显示(包含火焰图)</h3><p>我们使用<code>pprof</code>这个工具可以以网页的信息查看性能信息。</p>
+<p>安装命令:<code>go get github.com/google/pprof</code>，貌似go1.10及以后可以用<code>go tool pprof</code>达到一样的效果。</p>
+<p>下面是详细的命令例子:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> go test -bench=. -benchmem -benchtime=1s t_test.go -cpuprofile cpu.out #生成cpu profile文件</div><div class="line"><span class="meta">$</span> pprof -http="127.0.0.1:10086" cpu.out</div></pre></td></tr></table></figure></p>
+<h2 id="接口性能测试"><a href="#接口性能测试" class="headerlink" title="接口性能测试"></a>接口性能测试</h2><h3 id="Vegeta"><a href="#Vegeta" class="headerlink" title="Vegeta"></a>Vegeta</h3><p><a href="https://github.com/tsenart/vegeta" target="_blank" rel="external"><em>vegeta</em></a> 是一个用Go语言编写的HTTP测试工具，提供了命令行和开发库。</p>
+<p>标准输入:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> echo 'GET http://localhost:9090/api/echo' | vegeta attack -duration=3s -rate=100 &gt; res.bin #生成结果文件</div></pre></td></tr></table></figure></p>
+<p><code>-duration</code>测试时长，0表示永久。</p>
+<p><code>-rate</code>每秒请求数，默认50。</p>
+<p>目标输入为文件:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> vegeta attack -targets=targets.txt -duration=1s &gt; res.bin</div></pre></td></tr></table></figure></p>
+<p><code>targets.txt</code>文件内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET http://localhost:9090/echo</div><div class="line">Authorization: Token ABCDXXX</div></pre></td></tr></table></figure></p>
+<p>导出结果:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cat res.bin | vegeta report -reporter=json &gt; res.json #json</div><div class="line"><span class="meta">$</span> cat res.bin | vegeta report -reporter=plot &gt; res.html #html</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.cnhzz.com/vegeta/" target="_blank" rel="external">参考link</a></p>
+<h3 id="Alex"><a href="#Alex" class="headerlink" title="Alex"></a>Alex</h3><p><a href="https://github.com/ireaderlab/alex" target="_blank" rel="external"><em>Alex</em></a> 是基于<em>vegeta lib</em>和<em>boom</em>的web压测网站。</p>
+<p>具体的的东西我已经打包成docker镜像上传了，只需要执行下面的命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> docker pull dontbesad/alexweb:mongo</div><div class="line"><span class="meta">$</span> docker run -itd -p 8000:8000 dontbesad/alexweb:mongo</div></pre></td></tr></table></figure>
+<p>然后访问<code>http://localhost:8000</code>即可。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我们可以先通过<em>Alex</em>或者<em>Vegeta</em>测试一个接口的QPS，如果感觉接口QPS不够，那么我们接下来用<em>benchmark</em>方案来检测具体性能。</p>
+<p>下面是一键脚本例子:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line"></div><div class="line">go test -v -run=nil -bench=. -benchmem  -benchtime=5s *.go \</div><div class="line">    -cpuprofile cpu.out -o bench-test.bin &amp;&amp; rm bench-test.bin &amp;&amp; \</div><div class="line">    /home/yy/go/bin/pprof -http="127.0.0.1:10086" cpu.out</div></pre></td></tr></table></figure></p>
+<p>执行上述脚本之后，访问<code>http://localhost:10086</code>即可查看性能信息。</p>
 
       
 
@@ -210,7 +239,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">GO</a>
         		</li>
       		
 		</ul>
@@ -266,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/06/30/自动AC机-php实现-日刷千题不是梦/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/07/Go性能测试总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,18 +309,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/06/30/爬虫类-爬取网站的图片/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          爬虫类-爬取网站的图片
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/06/22/MySQL索引/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MySQL索引</div>
+    <a href="/2017/07/04/操作系统笔记-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">操作系统笔记.1</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -330,7 +350,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://yoursite.com/2017/06/30/自动AC机-php实现-日刷千题不是梦/",
+  id: "http://yoursite.com/2018/08/07/Go性能测试总结/",
   owner: 'dontbesad',
   repo: 'dontbesad.github.io',
   oauth: {
